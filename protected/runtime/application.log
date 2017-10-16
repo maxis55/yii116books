@@ -353,3 +353,63 @@ Stack trace:
 REQUEST_URI=/yii116books/index.php/site/index.php
 HTTP_REFERER=http://localhost/yii116books/index.php/book
 ---
+2017/10/16 15:27:23 [warning] [application] Failed to set unsafe attribute "img_path" of "Book".
+in D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php (75)
+in D:\Programs\xampp\htdocs\yii116books\index.php (12)
+2017/10/16 15:30:26 [error] [php] Undefined index: authors (D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php:73)
+Stack trace:
+#0 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilterChain.php(133): BookController->runAction()
+#1 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CInlineFilter.php(58): BookController->filterAccessControl()
+#4 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(265): BookController->runActionWithFilters()
+#7 D:\Programs\xampp\htdocs\yii116books\framework\web\CWebApplication.php(282): BookController->run()
+#8 D:\Programs\xampp\htdocs\yii116books\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Programs\xampp\htdocs\yii116books\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 D:\Programs\xampp\htdocs\yii116books\index.php(12): CWebApplication->run()
+REQUEST_URI=/yii116books/index.php?r=book/create
+in D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php (73)
+in D:\Programs\xampp\htdocs\yii116books\index.php (12)
+2017/10/16 15:30:49 [error] [php] Undefined index: authors (D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php:73)
+Stack trace:
+#0 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilterChain.php(133): BookController->runAction()
+#1 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CInlineFilter.php(58): BookController->filterAccessControl()
+#4 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(265): BookController->runActionWithFilters()
+#7 D:\Programs\xampp\htdocs\yii116books\framework\web\CWebApplication.php(282): BookController->run()
+#8 D:\Programs\xampp\htdocs\yii116books\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Programs\xampp\htdocs\yii116books\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 D:\Programs\xampp\htdocs\yii116books\index.php(12): CWebApplication->run()
+REQUEST_URI=/yii116books/index.php?r=book/create
+in D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php (73)
+in D:\Programs\xampp\htdocs\yii116books\index.php (12)
+2017/10/16 15:32:29 [error] [php] Undefined index: authors (D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php:73)
+Stack trace:
+#0 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilterChain.php(133): BookController->runAction()
+#1 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CInlineFilter.php(58): BookController->filterAccessControl()
+#4 D:\Programs\xampp\htdocs\yii116books\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Programs\xampp\htdocs\yii116books\framework\web\CController.php(265): BookController->runActionWithFilters()
+#7 D:\Programs\xampp\htdocs\yii116books\framework\web\CWebApplication.php(282): BookController->run()
+#8 D:\Programs\xampp\htdocs\yii116books\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Programs\xampp\htdocs\yii116books\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 D:\Programs\xampp\htdocs\yii116books\index.php(12): CWebApplication->run()
+REQUEST_URI=/yii116books/index.php?r=book/create
+in D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php (73)
+in D:\Programs\xampp\htdocs\yii116books\index.php (12)
+2017/10/16 15:33:09 [warning] [application] Failed to set unsafe attribute "img_path" of "Book".
+in D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php (78)
+in D:\Programs\xampp\htdocs\yii116books\index.php (12)
+2017/10/16 15:33:18 [warning] [application] Failed to set unsafe attribute "img_path" of "Book".
+in D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php (78)
+in D:\Programs\xampp\htdocs\yii116books\index.php (12)
+2017/10/16 15:33:31 [warning] [application] Failed to set unsafe attribute "img_path" of "Book".
+in D:\Programs\xampp\htdocs\yii116books\protected\controllers\BookController.php (78)
+in D:\Programs\xampp\htdocs\yii116books\index.php (12)

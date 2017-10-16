@@ -69,8 +69,11 @@ class AuthorController extends Controller
 
 		if(isset($_POST['Author']))
 		{
-            $newBooks=$_POST['Author']['books'];
-            unset($_POST['Author']['books']);
+            $newBooks=array();
+            if(isset($_POST['Book']['books'])){
+                $newBooks=$_POST['Author']['books'];
+                unset($_POST['Author']['books']);
+            }
 			$model->attributes=$_POST['Author'];
             if($model->born!=null)
                 $model->born = date('Y-m-d',strtotime($model->born));
@@ -110,8 +113,11 @@ class AuthorController extends Controller
 		if(isset($_POST['Author']))
 		{
             $oldBooks=$model->books;
-            $newBooks=$_POST['Author']['books'];
-            unset($_POST['Author']['books']);
+            $newBooks=array();
+            if(isset($_POST['Book']['books'])){
+                $newBooks=$_POST['Author']['books'];
+                unset($_POST['Author']['books']);
+            }
 			$model->attributes=$_POST['Author'];
             if($model->born!=null)
                 $model->born = date('Y-m-d',strtotime($model->born));

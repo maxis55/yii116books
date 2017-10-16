@@ -70,15 +70,18 @@ class BookController extends Controller
 		if(isset($_POST['Book']))
 		{
             $fullPath='';
-            $newAuthors=$_POST['Book']['authors'];
-            unset($_POST['Book']['authors']);
+            $newAuthors=array();
+            if(isset($_POST['Book']['authors'])){
+                $newAuthors=$_POST['Book']['authors'];
+                unset($_POST['Book']['authors']);
+            }
 			$model->attributes=$_POST['Book'];
             $uploadedFile = CUploadedFile::getInstance($model, "img_path");
             if($uploadedFile!==null){
                 $fileName = "image-prefix-" . time() . "." . $uploadedFile->getExtensionName();
                 $model->img_path = $fileName;
                 $fullPath =  'images/' . $fileName;
-                $uploadedFile->saveAs($fullPath);
+
             }else
                 $model->img_path=null;
 
@@ -87,16 +90,14 @@ class BookController extends Controller
             else
                 $model->published=null;
             if($model->save()){
+                if($uploadedFile!=null)
+                    $uploadedFile->saveAs($fullPath);
 			    if(isset($newAuthors)&&!empty($newAuthors)){
                     foreach ($newAuthors as $author){
                         $bookAuthor= new BookAuthor();
                         $bookAuthor->author_id=$author;
                         $bookAuthor->book_id=$model->id;
                         $bookAuthor->save();
-                    }
-                }else{
-                    if($uploadedFile != null&&file_exists($fullPath)){
-                            unlink($fullPath);
                     }
                 }
 
@@ -128,9 +129,13 @@ class BookController extends Controller
             $hasImg=false;
             $oldPath='';
             $fullPath='';
+
             $oldAuthors=$model->authors;
-            $newAuthors=$_POST['Book']['authors'];
-            unset($_POST['Book']['authors']);
+            $newAuthors=array();
+            if(isset($_POST['Book']['authors'])){
+                $newAuthors=$_POST['Book']['authors'];
+                unset($_POST['Book']['authors']);
+            }
             if($model->img_path!=null){
                 $hasImg=true;
                 $oldPath=$model->img_path;
@@ -145,13 +150,15 @@ class BookController extends Controller
                 $fileName = "image-prefix-" . time() . "." . $uploadedFile->getExtensionName();
                 $model->img_path = $fileName;
                 $fullPath = 'images/' . $model->img_path;
-                $uploadedFile->saveAs($fullPath);
             }else
                 $model->img_path=$oldPath;
 
 			if($model->save()){
-                if($uploadedFile != null&&$hasImg&&file_exists('images/' . $oldPath))
+                if($uploadedFile != null&&$hasImg&&file_exists('images/' . $oldPath)){
+                    $uploadedFile->saveAs($fullPath);
                     unlink('images/' . $oldPath);
+                }
+
                 if(isset($_POST['Book']['authors'])){
                     $oldArr=array();
                     foreach ($oldAuthors as $author){
@@ -174,10 +181,6 @@ class BookController extends Controller
 
                 }
                 $this->redirect(array('view','id'=>$model->id));
-            }else{
-                if($uploadedFile != null&&file_exists($fullPath)){
-                        unlink($fullPath);
-                }
             }
 
 		}
