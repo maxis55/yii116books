@@ -10,9 +10,9 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Book', 'url'=>array('index')),
 	array('label'=>'Create Book', 'url'=>array('create')),
-	array('label'=>'Update Book', 'url'=>array('update', 'id'=>$model->id),'visible'=>Yii::app()->user->isAdmin),
+	array('label'=>'Update Book', 'url'=>array('update', 'id'=>$model->id),'visible'=>Yii::app()->user->isGuest?false:Yii::app()->user->isAdmin),
 	array('label'=>'Delete Book', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'),'visible'=>Yii::app()->user->isGuest?false:Yii::app()->user->isAdmin),
-	array('label'=>'Manage Book', 'url'=>array('admin'),'visible'=>Yii::app()->user->isAdmin),
+	array('label'=>'Manage Book', 'url'=>array('admin'),'visible'=>Yii::app()->user->isGuest?false:Yii::app()->user->isAdmin),
 );
 ?>
 

@@ -57,7 +57,7 @@ class Book extends CActiveRecord
         $tempArr=array();
         if ($this->authors)
             foreach ( $this->authors as $author)
-                $tempArr[]=CHtml::link(CHtml::encode($author->name), array('./author/view', 'id'=>$author->id));
+                $tempArr[]=CHtml::link(CHtml::encode($author->name), array('/author/view', 'id'=>$author->id));
         else
             return "None authors assigned";
         return implode(', ',$tempArr);

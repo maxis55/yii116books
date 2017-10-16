@@ -23,12 +23,12 @@
 	<br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('publisher_id')); ?>:</b>
-    <?php echo CHtml::link(CHtml::encode($data->publisher->name), array('./publisher/view', 'id'=>$data->publisher->id)); ?>
+    <?php echo CHtml::link(CHtml::encode($data->publisher->name), array('/publisher/view', 'id'=>$data->publisher->id)); ?>
     <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('category_id')); ?>:</b>
 <!--	--><?php //echo CHtml::encode($data->category_id); ?>
-    <?php echo CHtml::link(CHtml::encode($data->category->getParentCategoriesLine()), array('./category/view', 'id'=>$data->category->id)); ?>
+    <?php echo CHtml::link(CHtml::encode($data->category->getParentCategoriesLine()), array('/category/view', 'id'=>$data->category->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('img_path')); ?>:</b>
