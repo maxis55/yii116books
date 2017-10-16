@@ -69,6 +69,7 @@ class BookController extends Controller
 
 		if(isset($_POST['Book']))
 		{
+            $fullPath='';
             $newAuthors=$_POST['Book']['authors'];
             unset($_POST['Book']['authors']);
 			$model->attributes=$_POST['Book'];
@@ -92,6 +93,10 @@ class BookController extends Controller
                         $bookAuthor->author_id=$author;
                         $bookAuthor->book_id=$model->id;
                         $bookAuthor->save();
+                    }
+                }else{
+                    if($uploadedFile != null&&file_exists($fullPath)){
+                            unlink($fullPath);
                     }
                 }
 
@@ -122,6 +127,7 @@ class BookController extends Controller
 
             $hasImg=false;
             $oldPath='';
+            $fullPath='';
             $oldAuthors=$model->authors;
             $newAuthors=$_POST['Book']['authors'];
             unset($_POST['Book']['authors']);
@@ -136,8 +142,6 @@ class BookController extends Controller
                 $model->published=null;
             $uploadedFile = CUploadedFile::getInstance($model, "img_path");
             if($uploadedFile != null) {
-                if($hasImg&&file_exists('images/' . $oldPath))
-                    unlink('images/' . $oldPath);
                 $fileName = "image-prefix-" . time() . "." . $uploadedFile->getExtensionName();
                 $model->img_path = $fileName;
                 $fullPath = 'images/' . $model->img_path;
@@ -146,6 +150,8 @@ class BookController extends Controller
                 $model->img_path=$oldPath;
 
 			if($model->save()){
+                if($uploadedFile != null&&$hasImg&&file_exists('images/' . $oldPath))
+                    unlink('images/' . $oldPath);
                 if(isset($_POST['Book']['authors'])){
                     $oldArr=array();
                     foreach ($oldAuthors as $author){
@@ -167,8 +173,11 @@ class BookController extends Controller
                     }
 
                 }
-
                 $this->redirect(array('view','id'=>$model->id));
+            }else{
+                if($uploadedFile != null&&file_exists($fullPath)){
+                        unlink($fullPath);
+                }
             }
 
 		}
