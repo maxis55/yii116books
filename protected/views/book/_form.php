@@ -39,7 +39,7 @@
 <!--		--><?php //echo $form->textField($model,'published'); ?>
 		<?php
         if($model->published!=null)
-        $model->published=date('m.d.yy',strtotime($model->published));
+        $model->published=date('m.d.Y',strtotime($model->published));
         $this->widget('zii.widgets.jui.CJuiDatePicker',array(
             'model'     => $model,
             'attribute' => 'published',

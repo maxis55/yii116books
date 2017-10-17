@@ -81,7 +81,6 @@ class BookController extends Controller
                 $fileName = "image-prefix-" . time() . "." . $uploadedFile->getExtensionName();
                 $model->img_path = $fileName;
                 $fullPath =  'images/' . $fileName;
-
             }else
                 $model->img_path=null;
 
@@ -140,7 +139,9 @@ class BookController extends Controller
                 $hasImg=true;
                 $oldPath=$model->img_path;
             }
+
 			$model->attributes=$_POST['Book'];
+
             if($model->published!=null)
                 $model->published = date('Y-m-d',strtotime($model->published));
             else
@@ -154,9 +155,11 @@ class BookController extends Controller
                 $model->img_path=$oldPath;
 
 			if($model->save()){
-                if($uploadedFile != null&&$hasImg&&file_exists('images/' . $oldPath)){
+                if($uploadedFile != null){
                     $uploadedFile->saveAs($fullPath);
-                    unlink('images/' . $oldPath);
+                    if($hasImg&&file_exists('images/' . $oldPath)){
+                        unlink('images/' . $oldPath);
+                    }
                 }
 
                 if(isset($_POST['Book']['authors'])){

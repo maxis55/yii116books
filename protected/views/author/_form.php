@@ -29,7 +29,7 @@
 		<?php echo $form->labelEx($model,'born'); ?>
 <!--		--><?php //echo $form->textField($model,'born');
         if($model->born!=null)
-        $model->born=date('m.d.yy',strtotime($model->born));
+        $model->born=date('m.d.Y',strtotime($model->born));
         $this->widget('zii.widgets.jui.CJuiDatePicker',array(
             'model'     => $model,
             'attribute' => 'born',

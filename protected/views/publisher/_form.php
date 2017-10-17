@@ -29,7 +29,7 @@
 		<?php echo $form->labelEx($model,'created'); ?>
 		<?php
         if($model->created!=null)
-            $model->created=date('m.d.yy',strtotime($model->created));
+            $model->created=date('m.d.Y',strtotime($model->created));
         $this->widget('zii.widgets.jui.CJuiDatePicker',array(
             'model'     => $model,
             'attribute' => 'created',
