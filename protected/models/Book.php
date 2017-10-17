@@ -74,7 +74,7 @@ class Book extends CActiveRecord
 			array('name, pages', 'required'),
 			array('pages, category_id, publisher_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
-			array('img_path', 'file', 'types'=>'jpg, gif, png', 'safe' => true),
+			array('img_path', 'file', 'types'=>'jpg, gif, png', 'safe' => true,'allowEmpty'=>true),
 			array('published', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
